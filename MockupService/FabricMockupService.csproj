@@ -100,6 +100,7 @@
     <Reference Include="System.Fabric.Strings, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
       <HintPath>..\packages\Microsoft.ServiceFabric.6.2.301\lib\net461\System.Fabric.Strings.dll</HintPath>
     </Reference>
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -111,14 +112,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Wcf\IOperationContext.cs" />
+    <Compile Include="Wcf\IServiceSecurityContext.cs" />
     <Compile Include="MockAsyncEnumerable.cs" />
     <Compile Include="MockCodePackageActivationContext.cs" />
+    <Compile Include="Wcf\MockOperationContext.cs" />
     <Compile Include="MockReliableDictionary.cs" />
     <Compile Include="MockReliableQueue.cs" />
     <Compile Include="MockReliableStateManager.cs" />
     <Compile Include="MockServiceContext.cs" />
     <Compile Include="MockTransaction.cs" />
+    <Compile Include="Wcf\OperationContextWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Wcf\ServiceSecurityContextWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

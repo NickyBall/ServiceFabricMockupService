@@ -133,6 +133,10 @@
       <Project>{3abafa3f-a982-4330-ad87-e91256b9370b}</Project>
       <Name>ReliableStorageManagerService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharedService\SharedService.csproj">
+      <Project>{7C4D2E12-C5F2-42BC-B3EA-B5860E0955A0}</Project>
+      <Name>SharedService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

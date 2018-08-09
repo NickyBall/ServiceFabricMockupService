@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MockupService;
+using SharedService;
 
 namespace ReliableStorageManagerService.Test
 {
@@ -20,6 +22,14 @@ namespace ReliableStorageManagerService.Test
             var c = x.GetCountAsync(tx).GetAwaiter().GetResult();
 
             Assert.IsTrue(c > 0);
+        }
+    }
+
+    public class QueueClientTest : IQueueClient
+    {
+        public Task ResponseAsync(string Message)
+        {
+            return Task.CompletedTask;
         }
     }
 }

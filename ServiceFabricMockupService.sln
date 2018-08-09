@@ -27,8 +27,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service.Test", "Service.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReliableStorageManagerService.Test", "ReliableStorageManagerService.Test\ReliableStorageManagerService.Test.csproj", "{AEBAC4CB-346F-4AE7-8132-82330134AD87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFMock", "WCFMock\WCFMock.csproj", "{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,14 +91,6 @@ Global
 		{AEBAC4CB-346F-4AE7-8132-82330134AD87}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AEBAC4CB-346F-4AE7-8132-82330134AD87}.Release|x64.ActiveCfg = Release|Any CPU
 		{AEBAC4CB-346F-4AE7-8132-82330134AD87}.Release|x64.Build.0 = Release|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Debug|x64.Build.0 = Debug|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Release|x64.ActiveCfg = Release|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,7 +101,6 @@ Global
 		{7C4D2E12-C5F2-42BC-B3EA-B5860E0955A0} = {374EA547-1F6F-4A63-8D21-C7CB4388BCD8}
 		{71CBD465-0F8A-45DE-AEA9-B88CDC6BAB62} = {9ED9B0A3-171B-4940-A908-D2EDC9EB0676}
 		{AEBAC4CB-346F-4AE7-8132-82330134AD87} = {EE8DD85C-F7DD-493D-BA43-0DC0563FFE84}
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9} = {EE8DD85C-F7DD-493D-BA43-0DC0563FFE84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {712B2D4C-24C0-40E2-B547-CA61A74821F1}

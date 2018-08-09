@@ -93,6 +93,7 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MockOperationContextWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueService.cs" />
     <Compile Include="ReliableStorageManagerService.cs" />
@@ -117,10 +118,6 @@
     <ProjectReference Include="..\WcfCommunicationBindingService\WcfCommunicationBindingService.csproj">
       <Project>{58e03734-69d2-41ad-86ac-7c3c2194045d}</Project>
       <Name>WcfCommunicationBindingService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WCFMock\WCFMock.csproj">
-      <Project>{1c97cc1d-27e9-4dd0-b1d3-be0541162ed9}</Project>
-      <Name>WCFMock</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

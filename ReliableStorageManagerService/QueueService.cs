@@ -9,7 +9,8 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-using OperationContext = System.ServiceModel.Web.MockedOperationContext;
+//using OperationContext = System.ServiceModel.Web.MockedOperationContext;
+using OperationContext = MockupService.Wcf.MockOperationContext<ReliableStorageManagerService.MockOperationContextWrapper>;
 
 namespace ReliableStorageManagerService
 {
@@ -17,13 +18,15 @@ namespace ReliableStorageManagerService
     {
         private readonly ServiceContext Context;
         private readonly IReliableStateManager StateManager;
+        private readonly Func<IQueueClient> CreateCallback;
 
         private const string QUEUE_NAME = "Queue";
 
-        public QueueService(ServiceContext Context, IReliableStateManager StateManager)
+        public QueueService(ServiceContext Context, IReliableStateManager StateManager, Func<IQueueClient> CreateCallback = null)
         {
             this.Context = Context;
             this.StateManager = StateManager;
+            this.CreateCallback = CreateCallback;
         }
 
         public async Task DeQueueAsync()
@@ -47,7 +50,7 @@ namespace ReliableStorageManagerService
         {
             var Operation = OperationContext.Current;
             IQueueClient Callback = null;
-            if (Operation != null) Callback = Operation.GetCallbackChannel<IQueueClient>();
+            if (Operation != null) Callback = CreateCallback == null ? Operation.GetCallbackChannel<IQueueClient>() : CreateCallback();
             var Queue = await StateManager.GetOrAddAsync<IReliableQueue<string>>(QUEUE_NAME);
             using (var tx = StateManager.CreateTransaction())
             {
