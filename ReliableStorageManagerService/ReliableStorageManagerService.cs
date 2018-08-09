@@ -2,28 +2,42 @@
 using System.Collections.Generic;
 using System.Fabric;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime;
+using Microsoft.ServiceFabric.Services.Remoting;
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 using SharedService;
 using WcfCommunicationBindingService;
 
 
-
+[assembly: InternalsVisibleTo("ReliableStorageManagerService.Test")]
 namespace ReliableStorageManagerService
 {
-    
+
     /// <summary>
     /// An instance of this class is created for each service replica by the Service Fabric runtime.
     /// </summary>
-    internal sealed class ReliableStorageManagerService : StatefulService
+    
+    internal sealed class ReliableStorageManagerService : StatefulService, IQueue
     {
         public ReliableStorageManagerService(StatefulServiceContext context)
             : base(context)
         { }
+
+        public Task DeQueueAsync()
+        {
+            return Task.CompletedTask;
+        }
+
+        public Task EnQueueAsync(string Message)
+        {
+            return Task.CompletedTask;
+        }
 
         /// <summary>
         /// Optional override to create listeners (e.g., HTTP, Service Remoting, WCF, etc.) for this service replica to handle client or user requests.
@@ -34,9 +48,11 @@ namespace ReliableStorageManagerService
         /// <returns>A collection of listeners.</returns>
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
+            QueueService QS = new QueueService(Context, StateManager);
             return new[]
             {
-                new ServiceReplicaListener(context => context.CreateWcfNetTcpListener<IQueue>(new QueueService(context, StateManager), "QueueService"))
+                //new ServiceReplicaListener(context => context.CreateWcfNetTcpListener<IQueue>(new QueueService(context, StateManager), "QueueService")),
+                new ServiceReplicaListener(context => this.CreateServiceRemotingListener(context), "Internal")
             };
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.ServiceFabric.Services.Remoting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace SharedService
 {
     [ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(IQueueClient))]
-    public interface IQueue
+    public interface IQueue : IService
     {
         [OperationContract(IsOneWay = true)]
         Task EnQueueAsync(string Message);

@@ -1,9 +1,12 @@
 ﻿using Microsoft.ServiceFabric.Data;
 using Microsoft.ServiceFabric.Data.Collections;
+using Microsoft.ServiceFabric.Services.Remoting;
+using Microsoft.ServiceFabric.Services.Runtime;
 using SharedService;
 using System;
 using System.Collections.Generic;
 using System.Fabric;
+using System.Fabric.Query;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -14,19 +17,17 @@ using OperationContext = FabricWcfMockupService.Wcf.MockOperationContext<Reliabl
 
 namespace ReliableStorageManagerService
 {
-    public class QueueService : IQueue
+    public class QueueService : IQueue, IService
     {
-        private readonly ServiceContext Context;
+        private readonly StatefulServiceContext Context;
         private readonly IReliableStateManager StateManager;
-        private readonly Func<IQueueClient> CreateCallback;
 
         private const string QUEUE_NAME = "Queue";
 
-        public QueueService(ServiceContext Context, IReliableStateManager StateManager, Func<IQueueClient> CreateCallback = null)
+        public QueueService(StatefulServiceContext Context, IReliableStateManager StateManager)
         {
             this.Context = Context;
             this.StateManager = StateManager;
-            this.CreateCallback = CreateCallback;
         }
 
         public async Task DeQueueAsync()
@@ -50,7 +51,7 @@ namespace ReliableStorageManagerService
         {
             var Operation = OperationContext.Current;
             IQueueClient Callback = null;
-            if (Operation != null) Callback = CreateCallback == null ? Operation.GetCallbackChannel<IQueueClient>() : CreateCallback();
+            if (Operation != null) Callback = Operation.GetCallbackChannel<IQueueClient>();
             var Queue = await StateManager.GetOrAddAsync<IReliableQueue<string>>(QUEUE_NAME);
             using (var tx = StateManager.CreateTransaction())
             {
