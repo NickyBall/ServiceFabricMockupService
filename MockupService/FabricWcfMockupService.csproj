@@ -7,8 +7,8 @@
     <ProjectGuid>{63207E58-02C5-4270-BA51-4A8E1EC2FB84}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MockupService</RootNamespace>
-    <AssemblyName>MockupService</AssemblyName>
+    <RootNamespace>FabricWcfMockupService</RootNamespace>
+    <AssemblyName>FabricWcfMockupService</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

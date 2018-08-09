@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReliableStorageManagerServi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service.Mockup", "Service.Mockup", "{33EF8D1A-0B36-460B-938C-622BE04BEEE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabricMockupService", "MockupService\FabricMockupService.csproj", "{63207E58-02C5-4270-BA51-4A8E1EC2FB84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabricWcfMockupService", "MockupService\FabricWcfMockupService.csproj", "{63207E58-02C5-4270-BA51-4A8E1EC2FB84}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WcfService", "WcfService", "{DB653697-FD0F-4FEF-83E3-F098BF91D80D}"
 EndProject

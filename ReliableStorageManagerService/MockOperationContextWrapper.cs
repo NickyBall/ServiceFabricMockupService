@@ -1,4 +1,4 @@
-﻿using MockupService.Wcf;
+﻿using FabricWcfMockupService.Wcf;
 using SharedService;
 using System;
 using System.Collections.Generic;

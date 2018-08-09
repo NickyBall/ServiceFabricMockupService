@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //using OperationContext = System.ServiceModel.Web.MockedOperationContext;
-using OperationContext = MockupService.Wcf.MockOperationContext<ReliableStorageManagerService.MockOperationContextWrapper>;
+using OperationContext = FabricWcfMockupService.Wcf.MockOperationContext<ReliableStorageManagerService.MockOperationContextWrapper>;
 
 namespace ReliableStorageManagerService
 {

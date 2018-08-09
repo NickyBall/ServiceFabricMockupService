@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MockupService;
+using FabricWcfMockupService;
 using SharedService;
 
 namespace ReliableStorageManagerService.Test

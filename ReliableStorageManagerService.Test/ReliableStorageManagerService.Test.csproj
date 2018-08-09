@@ -125,9 +125,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MockupService\FabricMockupService.csproj">
+    <ProjectReference Include="..\MockupService\FabricWcfMockupService.csproj">
       <Project>{63207e58-02c5-4270-ba51-4a8e1ec2fb84}</Project>
-      <Name>FabricMockupService</Name>
+      <Name>FabricWcfMockupService</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReliableStorageManagerService\ReliableStorageManagerService.csproj">
       <Project>{3abafa3f-a982-4330-ad87-e91256b9370b}</Project>
